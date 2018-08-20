@@ -1,12 +1,13 @@
 #!/bin/bash
 while true; do
     ./data > data.in
-    ./jstd <data.in >jstd.out
-    ./j <data.in > j.out
-    if diff jstd.out j.out; then
+    ./std <data.in >std.out
+    ./sol <data.in > sol.out
+    if diff std.out sol.out; then
         printf "AC\n"
     else
         printf "Wa\n"
+        cat sol.out std.out
         exit 0
     fi
 done

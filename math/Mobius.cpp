@@ -1,27 +1,31 @@
+int mob[10000005];
+int noprime[10000005];
+int P[1000005];
+int MAX=10000000;
 void Mobius()
 {
+    std::fill(noprime, noprime + 10000000, 1);
     int pnum = 0;
     mob[1] = 1;
     for(int i = 2; i < MAX; i++)
     {
         if(noprime[i])
         {
-            p[pnum ++] = i;
+            P[pnum ++] = i;
             mob[i] = -1;
         }
-        for(int j = 0; j < pnum && i * p[j] < MAX; j++)
+        for(int j = 0; j < pnum && i * P[j] < MAX; j++)
         {
-            noprime[i * p[j]] = false;
-            if(i % p[j] == 0)
+            noprime[i * P[j]] = false;
+            if(i % P[j] == 0)
             {
-                mob[i * p[j]] = 0;
+                mob[i * P[j]] = 0;
                 break;
             }
-            mob[i * p[j]] = -mob[i];
+            mob[i * P[j]] = -mob[i];
         }
     }
 }
-
 
 ll prime[maxn],mob[maxn],vis[maxn],cnt;
 
